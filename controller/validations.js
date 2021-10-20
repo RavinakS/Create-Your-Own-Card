@@ -43,17 +43,19 @@ function passwordValidation(password){
             containChar = isCharExist(password);
             if(containChar === true){
                 console.log('You are logged in successfully');
+                return 'valid';
             }else{
                 console.log("Password should have minimum 6 characters");
+                return 'unvalid';
             }
         }else{
             console.log("Atleas password should contain one number.");
+            return 'unvalid';
         }
     }else{
         console.log("Atleas password should contain one special character.");
+        return 'unvalid';
     }
 }
 
-// function checkingUserDtls(password){}
-
-passwordValidation('1@');
+module.exports = {passwordValidation}
