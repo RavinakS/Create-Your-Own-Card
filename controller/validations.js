@@ -58,4 +58,14 @@ function passwordValidation(password){
     }
 }
 
-module.exports = {passwordValidation}
+function termAndConditions(t_and_c){
+    if(t_and_c === true){
+        return 'excepted';
+    }else if(t_and_c === false){
+        return "notExcepted";
+    }else{
+        return "invalid";
+    }
+}
+
+module.exports = {passwordValidation, termAndConditions}

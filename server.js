@@ -4,6 +4,7 @@ app.use(express.json());
 
 const routes = require('./routes/allRoutes')
 app.use('/', routes);
+
 // app.get('/', (req, res)=>{
 //     res.send("Hii Ravina!!");
 // })
