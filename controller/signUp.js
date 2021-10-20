@@ -12,7 +12,13 @@ const createAccount = (req, res) =>{
             .catch((err)=>{
                 res.send(err);
             })
+        }else if(validations.termAndConditions(req.body.T_and_C) === 'notExcepted'){
+            res.send("You need to except the terms and conditions to create account.");
+        }else{
+            res.send(`please type "true" if you are agree with our terms and conditions or else type "false".`);
         }
+    }else{
+        res.send('Please provide a strong password!');
     }
 }
 
