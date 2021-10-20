@@ -1,9 +1,9 @@
 # Infistack
 
 # what is done
- - password validation
- - sign Up
+1. sign Up
   - (profilePic_url, userName, email, phoneNum, password, gender, Dob, qualification, T_and_C) all feilds are required.
+  - password validation
 
 ## Packages I have used so far
  - Express
