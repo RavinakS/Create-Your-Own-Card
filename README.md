@@ -1,5 +1,8 @@
 # Infistack
 
+# what is done
+ - password validation
+
 ## Packages I have used so far
  - Express
  - nodemon
