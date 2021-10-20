@@ -1,8 +1,8 @@
 # Infistack
 
 # what is done
-1. sign Up
-  - (profilePic_url, userName, email, phoneNum, password, gender, Dob, qualification, T_and_C) all feilds are required.
+**1. sign Up**
+ - (profilePic_url, userName, email, phoneNum, password, gender, Dob, qualification, T_and_C) all feilds are required.
   - password validation
 
 ## Packages I have used so far
