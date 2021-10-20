@@ -6,6 +6,9 @@
   - password validation
   - term and conditions
 
+**2. login**
+ - verifying 
+
 ## Packages I have used so far
  - Express
  - nodemon
