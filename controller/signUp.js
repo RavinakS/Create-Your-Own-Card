@@ -1,5 +1,5 @@
 const users_detail_tbl = require('../model/signUp');
-const validations = require('./validations');
+const validations = require('./schema_validation');
 
 const createAccount = (req, res) =>{
     if(validations.passwordValidation(req.body.password) === 'valid'){
