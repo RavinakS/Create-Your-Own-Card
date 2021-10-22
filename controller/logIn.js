@@ -1,16 +1,14 @@
 const users_detail_tbl = require('../model/login');
+const password = require('./password');
 
-const login = (req, res)=>{
-    let user_info = req.body;
-    obj_keys = Object.keys(user_info);
-    user_id = obj_keys[0]
-    users_detail_tbl.login(user_info[user_id])
-    .then((response)=>{
-        res.send(response);
-    })
-    .catch((err)=>{
-        res.send(err);
-    })
+const login = async (req, res)=>{
+    let dbPassword = await users_detail_tbl.login(req.body.login_id);
+    let validate = await password.decrypt(req.body.password, dbPassword[0]["password"]);
+    if(validate === true){
+        res.send("Logged in Successfully!!");
+    }else{
+        res.send("Wrong Password!!");
+    }
 }
 
 module.exports = login;
