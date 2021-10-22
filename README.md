@@ -8,7 +8,8 @@
   - term and conditions
 
 **2. login**
- - verifying (bcryp.compare())
+ - verifying password (bcryp.compare())
+ - create token for authorization (JWT)
 
 ## Packages I have used so far
  - Express
