@@ -7,7 +7,7 @@ db.schema.hasTable('users_detail').then((exist)=>{
             t.string('userName', 15).notNullable(),
             t.string('email', 30).notNullable().primary(),
             t.string('phoneNum', 12).unique().notNullable(),
-            t.string('password', 20).notNullable(),
+            t.string('password').notNullable(),
             t.string('gender', 10).notNullable(),
             t.date('Dob').notNullable(),
             t.string('qualification', 50).notNullable(),
