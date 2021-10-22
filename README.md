@@ -4,8 +4,9 @@
 **1. sign Up**
  - (profilePic_url, userName, email, phoneNum, password, gender, Dob, qualification, T_and_C) all feilds are required.
   - schema validation (Joi)/(RegExp)
+  - password hashing (bcrypt-node module)
   - term and conditions
-
+cd 
 **2. login**
  - verifying 
 
