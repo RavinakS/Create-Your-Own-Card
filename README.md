@@ -8,7 +8,7 @@
   - term and conditions
 
 **2. login**
- - verifying 
+ - verifying (bcryp.compare())
 
 ## Packages I have used so far
  - Express
