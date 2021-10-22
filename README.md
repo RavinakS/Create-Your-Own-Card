@@ -6,7 +6,7 @@
   - schema validation (Joi)/(RegExp)
   - password hashing (bcrypt-node module)
   - term and conditions
-cd 
+
 **2. login**
  - verifying 
 
