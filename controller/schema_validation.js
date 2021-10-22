@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const validations = Joi.object({
     profilePic_url:Joi.string(),
-    userName: Joi.string().alphanum().min(3).max(15).required(),
+    userName: Joi.string().alphanum().min(3).max(15).pattern(/^[A-Z][a-z, A-Z]+$/).required(),
     email: Joi.string().email().required(),
     phoneNum: Joi.string().length(10).pattern(/^\d+$/).required(),
     password: Joi.string().min(4).max(10).required(),

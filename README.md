@@ -3,7 +3,7 @@
 # what is done
 **1. sign Up**
  - (profilePic_url, userName, email, phoneNum, password, gender, Dob, qualification, T_and_C) all feilds are required.
-  - schema validation (Joi)/(RegExp)
+  - schema validation (Joi)/(RegExp) for username, password, dob, phonenumber, email
   - password hashing (bcrypt-node module)
   - term and conditions
 
