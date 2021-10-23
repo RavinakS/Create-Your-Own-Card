@@ -1,5 +1,18 @@
 const user = require('./middlewares/token');
 
-const user_info = user.verify(req, res);
+const postCard = (req, res)=>{
+    let token = req.headers.cookie.split('=')[0];
+    let decoded = user.authenticate(token, 'infistack');
+    
+    let cardDetails = {
+        "title": req.body.title,
+        "body": req.body.body,
+        "phoneNumber": decoded.phoneNum,
+        "email": decoded.email
+    }
 
-console.log(user_info);
+    
+
+}
+
+module.exports = postCard;

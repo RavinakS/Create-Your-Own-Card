@@ -19,7 +19,7 @@
 MVC - Model View Controller
 
 ## Packages I have used so far
- - Express
+ - Express (router, use, listen)
  - nodemon
  - knex
  - mysql2

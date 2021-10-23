@@ -8,6 +8,9 @@ app.use('/', createAccount);
 const signIn = require('./routes/login');
 app.use('/', signIn);
 
+const makeCard = require('./routes/cards');
+app.use('/', makeCard);
+
 app.listen('3040', (req, res)=>{
     console.log("Server is on.");
 })

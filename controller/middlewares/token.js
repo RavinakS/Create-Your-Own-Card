@@ -5,9 +5,9 @@ function create(user_info, secretKey){
     return token;
 }
 
-function verify(req, res){
-    let token = req.headers.cookie;
-    return jwt.verify(token);
+function authenticate(token, secretKey){
+    // let token = req.headers.cookie;
+    return jwt.verify(token, secretKey);
 }
 
-module.exports = {create, verify};
+module.exports = {create, authenticate};
