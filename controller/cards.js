@@ -84,11 +84,12 @@ const deleteCard = (req, res) =>{
     if(decoded.email === req.body.email){
         cards.deleteCard(req.body.title)
         .then((response)=>{
-            console.log(response);
-            res.send(response)
-            // res.send("Card is successfully deleted.");
+            console.log("Hiii");
+            // res.send(response)
+            res.send("Card is successfully deleted.");
         })
         .catch((err)=>{
+            console.log("Hellooo");
             res.send(err);
         })
     }else{
