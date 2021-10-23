@@ -8,12 +8,13 @@ const login = async (req, res)=>{
 
     if(passwordIsValid){
         let user_info = await users_detail_tbl.data(req.body.login_id);
-        let tokenCreated = token.createToken(user_info, 'infistack');
+        let tokenCreated = token.create(user_info[0], 'infistack');
 
         if(tokenCreated){
             res.cookie('token', tokenCreated);
             res.send("Logged in Successfully!!");
         }
+        
     }else{
         res.send("Wrong Password!!");
     }

@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
 
-function createToken(user_info, secretKey){
+function create(user_info, secretKey){
     let token = jwt.sign(user_info, secretKey);
     return token;
 }
 
-function verifyToken(req, res){
+function verify(req, res){
     let token = req.headers.cookie;
+    return jwt.verify(token);
 }
 
-module.exports = {createToken, verifyToken};
+module.exports = {create, verify};
