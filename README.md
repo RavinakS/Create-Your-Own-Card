@@ -11,6 +11,10 @@
  - verifying password (bcryp.compare())
  - create token for authorization (JWT)
 
+**3. Cards**
+ - authentication (token verification)
+ - creating card (post card information in the database)
+
 ## Packages I have used so far
  - Express
  - nodemon
