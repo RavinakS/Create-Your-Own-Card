@@ -15,6 +15,9 @@
  - authentication (token verification)
  - creating card (post card information in the database)
 
+## Project pattern
+MVC - Model View Controller
+
 ## Packages I have used so far
  - Express
  - nodemon
