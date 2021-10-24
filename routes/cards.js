@@ -1,32 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const {postCard, viewCards, editCard, deleteCard} = require('../controller/cards');
+const authenticate = require('../controller/middlewares/token').authenticate;
 
-async function userIsAuthenticated(req, res, next){
-    let token = req.headers.cookie.split('=')[0];
-    let decoded = user.authenticate(token, 'infistack');
+router.post('/create-card', authenticate, postCard);
 
-    let dbPassword = await users_detail_tbl.password(req.body.email);
-    let passwordIsValid = await password.decrypt(req.body.password, dbPassword[0]["password"]);
+router.get('/view-cards', authenticate, viewCards);
 
-    if(decoded.email === req.body.email && passwordIsValid){
-        req = true;
-        next();
-    }else{
-        req = false;
-        next()
-    }
-}
+router.put('/edit-post', authenticate, editCard);
 
-
-
-router.post('/create-card', postCard);
-
-router.get('/view-cards', viewCards);
-
-router.put('/edit-post', editCard);
-
-router.delete('/delete-card', deleteCard);
+router.delete('/delete-card', authenticate, deleteCard);
 
 
 module.exports = router;

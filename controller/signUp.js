@@ -23,8 +23,8 @@ const createAccount = async (req, res) =>{
     if(error){
         res.send(error.details[0].message);
     }else{
-        let hashPassword = await passwordE.encrypt(password);
-        user_details.password = hashPassword;
+        // let hashPassword = await password.encrypt(password);
+        user_details.password = req.hashPassword;
 
         users_detail_tbl.createAccount(user_details)
         .then((response)=>{

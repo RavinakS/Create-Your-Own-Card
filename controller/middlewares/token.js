@@ -1,13 +1,34 @@
 const jwt = require('jsonwebtoken');
+const users_detail_tbl = require('../../model/login');
 
-function create(user_info, secretKey){
-    let token = jwt.sign(user_info, secretKey);
-    return token;
+async function create(req, res, next){
+    
+    let user_info = await users_detail_tbl.userInfoForToken(req.body.login_id);
+
+    jwt.sign(user_info[0], 'infistack', (err, token)=>{
+        if(err){
+            res.send(err);
+            next();
+        }else{
+            req.token = token;
+            next();
+        }
+    });
 }
 
-function authenticate(token, secretKey){
-    // let token = req.headers.cookie;
-    return jwt.verify(token, secretKey);
+function authenticate(req, res, next){
+
+    let token = req.headers.cookie.split('=')[0];
+
+    jwt.verify(token, 'infistack', (err, decodedUserDetails)=>{
+        if(err){
+            res.send("Unauthorized!!");
+            next();
+        }else{
+            req.decodedUserDetails = decodedUserDetails;
+            next();
+        }
+    })
 }
 
 module.exports = {create, authenticate};
