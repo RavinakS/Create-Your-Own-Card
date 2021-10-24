@@ -5,8 +5,8 @@ function newCard (card_data){
     return db(table).insert(card_data);
 }
 
-function viewCards(user_id){
-    return db(table).select('*').where('email', user_id);
+function viewCards(email_id){
+    return db(table).select('*').where('email', email_id);
 }
 
 function editCard(search_title, updatedCard){

@@ -1,49 +1,42 @@
 const user = require('./middlewares/token');
 const cards = require('../model/cards');
-const { decode } = require('jsonwebtoken');
+const password = require('./middlewares/password');
+const users_detail_tbl = require('../model/login')
+
 
 //creating card for the user which is logged in
 const postCard = (req, res)=>{
     let token = req.headers.cookie.split('=')[0];
-    let decoded = user.authenticate(token, 'infistack');
-    
-    if(decoded.email === req.body.email){
-        let cardDetails = {
-            "title": req.body.title,
-            "body": req.body.body,
-            "phoneNumber": decoded.phoneNum,
-            "email": decoded.email
-        }
-    
-        cards.newCard(cardDetails)
-        .then((response)=>{
-            res.send("Card is successfully created:)");
-        })
-        .catch((err)=>{
-            res.send(err);
-        })
-    }else{
-        res.send("Access Denied.")
+    let decodedUserDetails = user.authenticate(token, 'infistack');
+
+    let cardDetails = {
+        "title": req.body.title,
+        "body": req.body.body,
+        "phoneNumber": decodedUserDetails.phoneNum,
+        "email": decodedUserDetails.email
     }
 
+    cards.newCard(cardDetails)
+    .then((response)=>{
+        res.send("Card is successfully created:)");
+    })
+    .catch((err)=>{
+        res.send(err);
+    })
 }
 
 // view all cards of the logged in user
 const viewCards = (req, res) =>{
     let token = req.headers.cookie.split('=')[0];
-    let decoded = user.authenticate(token, 'infistack');
+    let decodedUserDetails = user.authenticate(token, 'infistack');
 
-    if(decoded.email === req.body.email){
-        cards.viewCards(decoded.email)
-        .then((allCards)=>{
-            res.send(allCards);
-        })
-        .catch((err)=>{
-            res.send(err);
-        })
-    }else{
-        res.send("Access Denied.");
-    }
+    cards.viewCards(decodedUserDetails.email)
+    .then((allCards)=>{
+        res.send(allCards);
+    })
+    .catch((err)=>{
+        res.send(err);
+    })
 }
 
 // can't edit others cards

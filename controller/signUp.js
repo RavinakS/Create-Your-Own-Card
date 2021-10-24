@@ -21,10 +21,8 @@ const createAccount = async (req, res) =>{
 
     let {error, result} = schema.validations.validate(user_details)
     if(error){
-
         res.send(error.details[0].message);
     }else{
-
         let hashPassword = await passwordE.encrypt(password);
         user_details.password = hashPassword;
 

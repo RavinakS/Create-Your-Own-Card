@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt');
-const { func } = require('joi');
 
 async function encrypt(password){
     let salt = await bcrypt.genSalt();
