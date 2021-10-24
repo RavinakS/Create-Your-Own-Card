@@ -23,5 +23,6 @@ MVC - Model View Controller
  - nodemon
  - knex
  - mysql2
+ - dotenv
 
 ## How to run

@@ -25,14 +25,15 @@ const createAccount = async (req, res) =>{
         let {error, result} = schema.validations.validate(user_details)
         if(error){
             res.send(error.details[0].message);
+
         }else{
-            // let hashPassword = await password.encrypt(password);
             user_details.password = req.hashPassword;
 
             users_detail_tbl.createAccount(user_details)
             .then((response)=>{
                 res.send('Account is successfully created!!');
             })
+            
             .catch((err)=>{
                 res.send(err);
             })
