@@ -68,7 +68,7 @@ const deleteCard = (req, res) =>{
                 "Message": "Provide an existing card title."
             })
         }
-        res.send("Card is successfully deleted.");
+        res.send({"status": "Successfully deleted.", "noOfCard": response});
     })
     .catch((err)=>{
         res.send("Please provide title of the card you want to delete.");
