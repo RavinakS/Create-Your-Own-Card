@@ -61,12 +61,16 @@ const editCard = (req, res) =>{
     
         cards.editCard(req.body.search_card_title, updatedCard)
         .then((response)=>{
-            console.log(response);
-            // res.send(response);
-            res.send("Updated the Card.");
+            if(response){
+                res.send("Updated the Card.");
+            }
+            res.send({
+                "status": "Not Found", 
+                "Message": "Provide an existing card title."
+            })
         })
         .catch((err)=>{
-            res.send(err);
+            res.send("Please provide title of the card you want to edit.");
         })
     }else{
         res.send("Access Denied."); 
@@ -78,19 +82,19 @@ const deleteCard = (req, res) =>{
     let token = req.headers.cookie.split('=')[0];
     let decoded = user.authenticate(token, 'infistack');
 
-    console.log(decoded.email);
-    console.log(req.body.email);
-    console.log(req.body.title);
     if(decoded.email === req.body.email){
         cards.deleteCard(req.body.title)
         .then((response)=>{
-            console.log("Hiii");
-            // res.send(response)
+            if(response===0){
+                res.send({
+                    "status": "Not Found", 
+                    "Message": "Provide an existing card title."
+                })
+            }
             res.send("Card is successfully deleted.");
         })
         .catch((err)=>{
-            console.log("Hellooo");
-            res.send(err);
+            res.send("Please provide title of the card you want to delete.");
         })
     }else{
         res.send("Access Denied.");
