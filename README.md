@@ -69,6 +69,11 @@ In this folder I have created a folder called **"middlewares"** for all the midd
 
 <br />
 
+## Collection
+https://go.postman.co/workspace/My-Workspace~4c3140a4-e311-4af1-8675-111fbcd6fe9e/collection/6370876-cbe6f632-3dca-411b-82db-74338a7e3ace
+
+<br />
+
 ---
 ## Other files-
 
