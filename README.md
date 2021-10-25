@@ -68,6 +68,10 @@ In this folder I have created a folder called **"middlewares"** for all the midd
     - cards.js - callaback functions for cards(view, create, update, delete)
 
 <br />
+---
+## Other files-
+
+<br />
 
 ---
 # How to run
